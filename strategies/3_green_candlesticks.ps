@@ -1,0 +1,21 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © trader77974
+
+//@version=5
+// Définissez les paramètres de la stratégie
+strategy("Stratégie 3 bougies vertes", overlay=true)
+
+
+// Variables
+bougie1 = close[1] > open[1]
+bougie2 = close[2] > open[2]
+bougie3 = close[3] > open[3]
+profit = 10 // 1% de gain
+loss = 1 // 1% de perte
+
+// Stratégie
+if bougie1 and bougie2 and bougie3
+    strategy.entry("Long", strategy.long)
+
+strategy.exit("Exit", "Long", profit = profit, loss = loss)
+
