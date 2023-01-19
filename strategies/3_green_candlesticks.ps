@@ -3,8 +3,7 @@
 
 //@version=5
 // Définissez les paramètres de la stratégie
-strategy("Stratégie 3 bougies vertes", overlay=true)
-
+strategy("Stratégie 3 bougies vertes", overlay=false, initial_capital = 100)
 
 // Variables
 bougie1 = close[1] > open[1]
@@ -19,3 +18,4 @@ if bougie1 and bougie2 and bougie3
 
 strategy.exit("Exit", "Long", profit = profit, loss = loss)
 
+plot(strategy.initial_capital + strategy.grossprofit)
